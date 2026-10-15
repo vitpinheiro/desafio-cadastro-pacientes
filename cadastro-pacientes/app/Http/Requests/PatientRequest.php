@@ -14,14 +14,19 @@ class PatientRequest extends FormRequest
 
     public function rules(): array
     {
-        $obrigatorio = $this->isMethod('patch') ? 'sometimes' : 'required';
+        $presenca = $this->isMethod('patch') ? ['sometimes', 'required'] : ['required'];
 
         return [
-            'name' => [$obrigatorio, 'required', 'string', 'max:255'],
-            'cpf' => [$obrigatorio, 'required', 'string', 'regex:/^[0-9]{11}$/', Rule::unique('patients', 'cpf')->ignore($this->route('patient'))],
-            'birth_date' => [$obrigatorio, 'required', 'date_format:Y-m-d', 'before_or_equal:today'],
+            'name' => [...$presenca, 'string', 'max:255'],
+            'cpf' => [
+                ...$presenca,
+                'string',
+                'regex:/^[0-9]{11}$/',
+                Rule::unique('patients', 'cpf')->ignore($this->route('patient')),
+            ],
+            'birth_date' => [...$presenca, 'date_format:Y-m-d', 'before_or_equal:today'],
             'phone' => ['nullable', 'string', 'max:20'],
-            'health_unit_id' => [$obrigatorio, 'required', 'integer', 'exists:health_units,id'],
+            'health_unit_id' => [...$presenca, 'integer', 'exists:health_units,id'],
         ];
     }
 

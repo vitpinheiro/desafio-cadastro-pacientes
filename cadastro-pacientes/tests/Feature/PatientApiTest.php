@@ -79,6 +79,21 @@ class PatientApiTest extends TestCase
         $this->getJson('/api/health-units')->assertOk()->assertJsonFragment(['id' => $dados['health_unit_id']]);
     }
 
+    public function test_edicao_parcial_nao_permite_esvaziar_campos_obrigatorios(): void
+    {
+        $paciente = Patient::create($this->dadosPaciente());
+
+        $this->patchJson('/api/patients/'.$paciente->id, [
+            'name' => null,
+            'cpf' => '',
+            'birth_date' => null,
+            'health_unit_id' => null,
+        ])->assertUnprocessable()
+            ->assertJsonValidationErrors(['name', 'cpf', 'birth_date', 'health_unit_id']);
+
+        $this->assertSame('Maria Teste', $paciente->fresh()->name);
+    }
+
     public function test_registro_inexistente_retorna_404_em_json_sem_cabecalho_accept(): void
     {
         $this->get('/api/patients/0')->assertNotFound()->assertHeader('Content-Type', 'application/json');

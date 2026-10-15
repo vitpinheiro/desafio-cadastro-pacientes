@@ -9,14 +9,17 @@ class HealthUnitSeeder extends Seeder
 {
     public function run(): void
     {
-        $units = [
+        $unidades = [
             ['name' => 'UBS Centro', 'city' => 'Natal RN'],
             ['name' => 'UBS Pescadores', 'city' => 'Natal RN'],
             ['name' => 'UBS Pajuçara', 'city' => 'Natal RN'],
         ];
 
-        foreach ($units as $unit) {
-            HealthUnit::firstOrCreate($unit);
+        foreach ($unidades as $unidade) {
+            HealthUnit::updateOrCreate(
+                ['name' => $unidade['name']],
+                ['city' => $unidade['city']],
+            );
         }
     }
 }

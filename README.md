@@ -75,7 +75,7 @@ php artisan config:clear
 php artisan migrate --seed
 ```
 
-As migrations criam as tabelas e suas restrições. O `HealthUnitSeeder` cadastra três unidades de saúde e pode ser executado novamente sem duplicar unidades com o mesmo nome e cidade:
+As migrations criam as tabelas e suas restrições. O `HealthUnitSeeder` cadastra três unidades de saúde em Natal. Ao executar novamente, procura cada unidade pelo nome e atualiza sua cidade, sem duplicar unidades com o mesmo nome. Alterar o nome no arquivo cria uma nova unidade; renomear uma unidade existente exige atualizar seu registro no banco:
 
 ```powershell
 php artisan db:seed --class=HealthUnitSeeder
