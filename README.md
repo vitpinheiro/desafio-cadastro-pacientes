@@ -1,5 +1,15 @@
 # Cadastro de pacientes
 
+Feito por **Maria Vitória Rodrigues da Silva Pinheiro** para o **Desafio programador(a) PHP Júnior**.
+
+## Visão geral
+
+O desafio consiste em desenvolver uma aplicação web simples para cadastrar e consultar pacientes vinculados a unidades de saúde. O objetivo é verificar a compreensão dos fundamentos das tecnologias, a capacidade de implementar funcionalidades e a organização do trabalho.
+
+A entrega deve priorizar funcionamento e clareza. Não é necessário criar uma interface sofisticada ou adotar arquiteturas complexas.
+
+## Tecnologias utilizadas
+
 Aplicação para cadastrar e consultar pacientes vinculados a unidades de saúde.
 Desenvolvida com Laravel 10, MySQL/MariaDB e HTML, CSS e JavaScript puro.
 O frontend se comunica com a API por meio de `fetch`.
