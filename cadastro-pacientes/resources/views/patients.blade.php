@@ -11,7 +11,15 @@
 <body data-api-url="{{ url('/api') }}">
     <div class="layout">
         <aside class="sidebar" aria-label="Menu principal">
-            <a class="brand" href="{{ url('/') }}"><span class="brand-icon" aria-hidden="true">+</span> CADASTRO SAÚDE</a>
+            <a class="brand" href="{{ url('/') }}">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" />
+                        <path d="M3 12h4l2-4 4 8 2-4h6" />
+                    </svg>
+                </span>
+                CADASTRO SAÚDE
+            </a>
             <p class="menu-label">ATENDIMENTO</p>
             <nav><a class="nav-link active" href="{{ url('/') }}" aria-current="page"><span aria-hidden="true">▦</span> Pacientes</a></nav>
             <p class="sidebar-note">Cadastro e consulta<br>por unidade de saúde</p>

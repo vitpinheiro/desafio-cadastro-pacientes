@@ -10,9 +10,9 @@ class HealthUnitSeeder extends Seeder
     public function run(): void
     {
         $units = [
-            ['name' => 'UBS Centro', 'city' => 'São Paulo'],
-            ['name' => 'UBS Vila Nova', 'city' => 'São Paulo'],
-            ['name' => 'UBS Jardim das Flores', 'city' => 'São Paulo'],
+            ['name' => 'UBS Centro', 'city' => 'Natal RN'],
+            ['name' => 'UBS Pescadores', 'city' => 'Natal RN'],
+            ['name' => 'UBS Pajuçara', 'city' => 'Natal RN'],
         ];
 
         foreach ($units as $unit) {
